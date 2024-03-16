@@ -1,5 +1,6 @@
-import { Component, Injectable } from '@angular/core';
+import { Component, Injectable, Input, TemplateRef, inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Injectable({
   providedIn: 'root',
@@ -11,22 +12,16 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class PopupInformationComponent {
 
-  public title: string ='';
-  public message: string = '';
+  @Input() public title?: string;
+  @Input() public message?: string;
+
+  get activeModal() {
+    return this._NgbActiveModal;
+  }
 
   constructor(
-    private _dialog: MatDialog
+    private _NgbActiveModal: NgbActiveModal
   ){
-  }
-
-  showDialog(title: string, message: string): void{
-    this.title = title;
-    this.message = message;
-    this._dialog.open(PopupInformationComponent);
-  }
-
-  closeDialog():void{
-
   }
 
 }

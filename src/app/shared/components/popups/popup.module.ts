@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { MatDialogModule } from '@angular/material/dialog';
 
 import { PopupInformationComponent } from './popup-information/popup-information.component';
+import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -11,11 +12,14 @@ import { PopupInformationComponent } from './popup-information/popup-information
   ],
   imports: [
     CommonModule,
-    MatDialogModule
+    MatDialogModule,
+    NgbModule
   ],
   exports: [
     PopupInformationComponent
   ],
-  providers: [],
+  providers: [
+    NgbActiveModal
+  ],
 })
 export class PopupModule { }

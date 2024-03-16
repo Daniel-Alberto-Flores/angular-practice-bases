@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     SharedModule,
     CounterModule,
     HeroesModule,
-    DbzModule
+    DbzModule,
+    NgbModule
   ],
   providers: [
     provideAnimationsAsync()

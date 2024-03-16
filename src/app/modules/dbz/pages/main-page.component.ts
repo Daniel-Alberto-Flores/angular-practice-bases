@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 import { Character } from '../interfaces/character.interface';
 import { DbzService } from '../services/dbz.service';
-import { MatDialog } from '@angular/material/dialog';
 import { PopupInformationComponent } from '../../../shared/components/popups/popup-information/popup-information.component';
 
 
@@ -12,6 +13,9 @@ import { PopupInformationComponent } from '../../../shared/components/popups/pop
 
 export class DBZMainPageComponent{
 
+  @Input() title?: string;
+  @Input() message?: string;
+
   get characters(): Character[]{
     return [...this._dbzService.characters];
   }
@@ -19,7 +23,9 @@ export class DBZMainPageComponent{
   constructor(
     //public dialog: MatDialog,
     public popupInfo: PopupInformationComponent,
-    private _dbzService: DbzService
+    private _dbzService: DbzService,
+    private _modalService: NgbModal,
+    public activeModal: NgbActiveModal
   ) {
   }
 
@@ -31,10 +37,9 @@ export class DBZMainPageComponent{
     this._dbzService.addCharacter(character);
   }
 
-  showDialog():void {
-    const title: string = "Título del popup";
-    const message: string = "Este es un mensaje de prueba.";
-    this.popupInfo.showDialog(title,message);
+  showDialog() {
+    const modalRef = this._modalService.open(PopupInformationComponent);
+    modalRef.componentInstance.title = 'Pepito';
+    modalRef.componentInstance.message = 'Este es un mensaje de prueba.';
   }
-
 }
