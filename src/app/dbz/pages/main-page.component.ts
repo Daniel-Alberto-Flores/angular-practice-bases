@@ -9,8 +9,6 @@ import { DbzService } from '../services/dbz.service';
 
 export class DBZMainPageComponent{
 
-  public mostrarMsj: boolean = false;
-
   get characters(): Character[]{
     return [...this._dbzService.characters];
   }
@@ -27,9 +25,5 @@ export class DBZMainPageComponent{
   addCharacter(character: Character):void{
     this._dbzService.addCharacter(character);
   }
-
-  // mostrarMensaje():void{
-  //   this._popupService.openPopup();
-  // }
 
 }
