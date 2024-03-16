@@ -1,20 +1,31 @@
-<h1>DBZ Personajes</h1>
-<hr>
+<div hidden>
+  <h1>DBZ Personajes</h1>
+  <hr>
 
-<div class="row">
+  <div class="row">
 
-  <div class="col">
-    <dbz-list
-      [charactersList] = "characters"
-      (onDelete)="deleteCharacter($event)"
-    >
-    </dbz-list>
-  </div>
+    <div class="col">
+      <dbz-list
+        [charactersList] = "characters"
+        (onDelete)="deleteCharacter($event)"
+      >
+      </dbz-list>
+    </div>
 
-  <div class="col">
-    <dbz-add-character
-      (onNewCharacter)="addCharacter($event)"
-    ></dbz-add-character>
+    <div class="col">
+      <dbz-add-character
+        (onNewCharacter)="addCharacter($event)"
+      ></dbz-add-character>
+    </div>
+
   </div>
 
 </div>
+
+<div>
+  <button class="btn btn-primary" (click)="showDialog()">Mostrar diálogo</button>
+</div>
+
+
+
+
